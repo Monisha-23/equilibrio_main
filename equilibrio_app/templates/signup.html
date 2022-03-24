@@ -470,8 +470,9 @@
                                     <span style="padding-right: 2%;">Get all the latest information, events and workshops ! </span>
                                 </h4>
                                 <div class="newsletter-form-head">
-                                    <form action="/submit" method="POST" class="newsletter-form">
-                                        <input name="sEmail" placeholder="Email address here..." type="email">
+                                    <form action="{% url 'subscribe' %}" method="POST" class="newsletter-form">
+                                        {% csrf_token %}
+                                        <input name="email" placeholder="Email address here..." type="email">
                                         <div class="button">
                                             <button class="btn">Subscribe<span class="dir-part"></span></button>
                                         </div>
