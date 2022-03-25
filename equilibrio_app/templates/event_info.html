@@ -229,7 +229,7 @@
                 <p class="text-white">{{event.event_desc}}</p>
             </div>
         </div>
-        {% if i.round1 is not None %}
+        {% if event.round1 is not None %}
         <div class="row mb-3">
             <div class="cust_card col-md-6 border   p-5 offset-md-6">
                 <h2 class="heading text-center mb-5">Round 1</h2>
@@ -242,7 +242,7 @@
         </div>
         {% endif %}
 
-        {% if i.round2 is not None%}
+        {% if event.round2 is not None%}
         <div class="row mb-3">
             <div class="cust_card col-md-6 border   p-5 offset-md-6">
                 <h2 class="heading text-center mb-5">Round 2</h2>
@@ -255,7 +255,7 @@
         </div>
         {% endif %}
 
-        {% if i.round3 is not None%}
+        {% if event.round3 is not None%}
         <div class="row mb-3">
             <div class="cust_card col-md-6 border   p-5 offset-md-6">
                 <h2 class="heading text-center mb-5">Round 3</h2>
@@ -268,7 +268,7 @@
         </div>
         {% endif %}
 
-        {% if i.Theme is not None%}
+        {% if event.Theme is not None%}
         <div class="row mb-3">
             <div class="cust_card col-md-6 border   p-5">
                 <h2 class="heading text-center mb-5">Themes</h2>
@@ -283,7 +283,7 @@
         </div>
         {% endif %}
 
-        {% if i.rules is not None%}
+        {% if event.rules is not None%}
         <div class="row mb-3">
             <div class="cust_card col-md-6 border   p-5 offset-md-6">
                 <h2 class="heading text-center mb-5">Rules and Regulation</h2>
@@ -298,7 +298,7 @@
         </div>
         {% endif %}
 
-        {% if i.judge is not None%}
+        {% if event.judge is not None%}
         <div class="row mb-3">
             <div class="cust_card col-md-6 border   p-5 ">
                 <h2 class="heading text-center mb-5">Judgement Creiteria</h2>
@@ -312,7 +312,7 @@
             </div>
 {% endif %}
 
-{% if i.perks is not None%}
+{% if event.perks is not None%}
             <div class="cust_card col-md-6 border   p-5 offset-md-6">
                 <h2 class="heading text-center mb-5">Perks/Prizes</h2>
                 <p class="text-white">
