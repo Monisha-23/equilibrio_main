@@ -5,15 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
     <script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Equilibrio'22</title>
-    <link rel = "icon" href = "images/neweq.png"type = "image/x-icon">
+    <link rel = "icon" href = "{% static 'images/neweq.png' %}"type = "image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -398,12 +394,16 @@ p {
                           <div class="row" style="background-color: rgba(255, 255, 255, 0.13);border-radius: 10px;backdrop-filter: blur(10px);padding:2% 0%">
                             
                             <div class="col-md-4">
-                              <img src="">
+                              <img src="{{i.image}}">
                             </div>
                             <div class="col-md-8" style="text-align:left">
-                              <h5>{{i.event.event_name}}</h5>
-                              <p>{{i.event.desc}}</p>
-                              <button>Completed/Not</button>
+                              <h4 style="color:plum;font-family:Arial, Helvetica, sans-serif">{{i.event.event_name}}</h4>
+                              <p>{{i.event.event_desc}}</p>
+                              {% if i.event.completed %}
+                                <button style="margin:2% 0%;padding:1%;border-radius:10px;background:#7460ee;color:white;font-size: 14px;">Upcoming</button>
+                              {% else %}
+                              <button style="margin:2% 0%;padding:1%;border-radius:10px;background:transparent;color:white;font-size: 14px;border:1px solid #7460ee">Completed</button>
+                                {% endif %}
                             </div>
                           </div>
                           {% endfor %}
@@ -417,10 +417,15 @@ p {
                             <div class="col-md-8" style="text-align:left">
                               <h5>{{i.workshop.workshop_name}}</h5>
                               <p>{{i.workshop.workshop_desc}}</p>
-                              <button>Completed/Not</button>
+                              {% if i.workshop.completed %}
+                              <button style="margin:2% 0%;padding:1%;border-radius:10px;background:#7460ee;color:white;font-size: 14px;">Upcoming</button>
+                            {% else %}
+                            <button style="margin:2% 0%;padding:1%;border-radius:10px;background:transparent;color:white;font-size: 14px;border:1px solid #7460ee">Completed</button>
+                              {% endif %}
                             </div>
                           </div>
                           {% endfor %}
+
                         </div>
                     
                 </div>

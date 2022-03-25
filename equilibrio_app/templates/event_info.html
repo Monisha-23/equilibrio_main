@@ -226,54 +226,105 @@
         <div class="row mb-3">
             <div class="cust_card col-md-6 border p-5">
                 <h2 class="heading text-center mb-5  ">What is {{ event.event_name }} ?</h2>
-                <p class="text-white">{{event_desc}}</p>
+                <p class="text-white">{{event.event_desc}}</p>
             </div>
         </div>
+        {% if i.round1 is not None %}
         <div class="row mb-3">
             <div class="cust_card col-md-6 border   p-5 offset-md-6">
-                <h2 class="heading text-center mb-5">Number of Rounds</h2>
+                <h2 class="heading text-center mb-5">Round 1</h2>
                 <p class="text-white">
-                    {{event.rounds}}
+                    {% for i in event.round_1 %}
+                    {{i}}
+                {% endfor %}
                 </p>
             </div>
         </div>
+        {% endif %}
+
+        {% if i.round2 is not None%}
+        <div class="row mb-3">
+            <div class="cust_card col-md-6 border   p-5 offset-md-6">
+                <h2 class="heading text-center mb-5">Round 2</h2>
+                <p class="text-white">
+                    {% for i in event.round_2 %}
+                        {{i}}
+                    {% endfor %}
+                </p>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if i.round3 is not None%}
+        <div class="row mb-3">
+            <div class="cust_card col-md-6 border   p-5 offset-md-6">
+                <h2 class="heading text-center mb-5">Round 3</h2>
+                <p class="text-white">
+                    {% for i in event.round_3 %}
+                        {{i}}
+                    {% endfor %}
+                </p>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if i.Theme is not None%}
         <div class="row mb-3">
             <div class="cust_card col-md-6 border   p-5">
                 <h2 class="heading text-center mb-5">Themes</h2>
                 <p class="text-white">
                 <ul class="text-white">
-                    {{event.theme}}
+                    {% for i in event.themes %}
+                        {{i}}
+                    {% endfor %}
                 </ul>
                 </p>
             </div>
         </div>
+        {% endif %}
+
+        {% if i.rules is not None%}
         <div class="row mb-3">
             <div class="cust_card col-md-6 border   p-5 offset-md-6">
                 <h2 class="heading text-center mb-5">Rules and Regulation</h2>
                 <p class="text-white">
                 <ul class="text-white">
-                    {{event.rules}}
+                    {% for i in event.rul %}
+                        {{i}}
+                    {% endfor %}
                 </ul>
                 </p>
             </div>
         </div>
+        {% endif %}
+
+        {% if i.judge is not None%}
         <div class="row mb-3">
             <div class="cust_card col-md-6 border   p-5 ">
                 <h2 class="heading text-center mb-5">Judgement Creiteria</h2>
                 <p class="text-white">
                 <ul class="text-white">
-                    {{event.judge}}
+                    {% for i in event.jud %}
+                        {{i}}
+                    {% endfor %}
                 </ul>
                 </p>
             </div>
+{% endif %}
+
+{% if i.perks is not None%}
             <div class="cust_card col-md-6 border   p-5 offset-md-6">
                 <h2 class="heading text-center mb-5">Perks/Prizes</h2>
                 <p class="text-white">
                 <ul class="text-white">
-                    {{event.perks}}
+                    {% for i in event.perk %}
+                        {{i}}
+                    {% endfor %}
                 </ul>
                 </p>
             </div>
+{% endif %}
+
             <div class="row md-3" style="margin-top: 5%;margin-bottom: 5%;">
                 <div class="row text-center">
                     <div class="col-sm-6">
