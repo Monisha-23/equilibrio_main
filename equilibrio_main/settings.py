@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-fayit+wv#ju_i8@$&l1+i$cy@e&_xx-(217s+whikebc&5cc!c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['equilibrio_main.herokuapp.com']
 
