@@ -64,20 +64,12 @@
   transform: rotate(0deg);
 }
 
-.card--1 .card__img,
+/* .card--1 .card__img,
 .card--1 .card__img--hover {
   background-image: url('https://th.bing.com/th/id/OIP.IEZ2ThvIQWlfmdQHZVmTSwHaEP?w=286&h=180&c=7&r=0&o=5&dpr=1.25&pid=1.7');
-}
+} */
 
-.card--2 .card__img,
-.card--2 .card__img--hover {
-  background-image: url('https://th.bing.com/th/id/OIP.0zMWFYcOwpOfdgYGDHn0lgHaDt?w=295&h=174&c=7&r=0&o=5&dpr=1.25&pid=1.7');
-}
 
-.card--3 .card__img,
-.card--3 .card__img--hover {
-  background-image: url('https://th.bing.com/th/id/OIP.THuHgFECnnbMgwLkXSCtSQHaFW?w=216&h=180&c=7&r=0&o=5&dpr=1.25&pid=1.7');
-}
 
 
 .card__img {
