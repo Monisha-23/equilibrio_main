@@ -391,14 +391,18 @@ p {
 
                           <h3>Registered Events</h3>
                           {% for i in reg_events %}
-                          <div class="row" style="background-color: rgba(255, 255, 255, 0.13);border-radius: 10px;backdrop-filter: blur(10px);padding:2% 0%">
+                          <div class="row" style="margin:2% 0%;background-color: rgba(255, 255, 255, 0.13);border-radius: 10px;backdrop-filter: blur(10px);padding:2% 0%">
                             
                             <div class="col-md-4">
-                              <img src="{{i.image}}">
+                              <img src="{{i.event.image}}">
                             </div>
                             <div class="col-md-8" style="text-align:left">
                               <h4 style="color:plum;font-family:Arial, Helvetica, sans-serif">{{i.event.event_name}}</h4>
-                              <p>{{i.event.event_desc}}</p>
+                              <p style="color:white">{{i.event.event_desc}}</p>
+                              {% if i.event.date is not None and i.event.time is not None %}
+                              <b style="font-color:plum">Date: <span style="color:white">{{i.event.date}}</span></b>
+                              <b style="font-color:plum">Time: <span style="color:white">{{i.event.time}}</span></b>
+                              {% endif %}
                               {% if i.event.completed %}
                                 <button style="margin:2% 0%;padding:1%;border-radius:10px;background:#7460ee;color:white;font-size: 14px;">Upcoming</button>
                               {% else %}
@@ -406,6 +410,7 @@ p {
                                 {% endif %}
                             </div>
                           </div>
+                          
                           {% endfor %}
                           
                           {% for i in reg_work %}
@@ -418,9 +423,9 @@ p {
                               <h5>{{i.workshop.workshop_name}}</h5>
                               <p>{{i.workshop.workshop_desc}}</p>
                               {% if i.workshop.completed %}
-                              <button style="margin:2% 0%;padding:1%;border-radius:10px;background:#7460ee;color:white;font-size: 14px;">Upcoming</button>
+                              <button style="margin:2% 0%;padding:1%;border-radius:10px;background:#7460ee;color:white;font-size: 14px;">Completed</button>
                             {% else %}
-                            <button style="margin:2% 0%;padding:1%;border-radius:10px;background:transparent;color:white;font-size: 14px;border:1px solid #7460ee">Completed</button>
+                            <button style="margin:2% 0%;padding:1%;border-radius:10px;background:transparent;color:white;font-size: 14px;border:1px solid #7460ee">Upcoming</button>
                               {% endif %}
                             </div>
                           </div>
