@@ -54,11 +54,11 @@ class Category(models.Model):
 class Workshop(models.Model):
     workshop_name = models.CharField(default="workshop name",max_length=100)
     category = models.ForeignKey(Category,default=1,on_delete=models.CASCADE)
-    workshop_desc = models.TextField()
-    date = models.DateField(auto_created=True)
-    time = models.CharField(default="time",max_length=100)
-    image = models.ImageField(blank=True, upload_to='images')
-    completed = models.BooleanField()
+    workshop_desc = models.TextField(null=True)
+    date = models.DateField(auto_created=True,null=True)
+    time = models.CharField(default="time",max_length=100,null=True)
+    image = models.ImageField(blank=True, upload_to='images',null=True)
+    completed = models.BooleanField(null=True)
 
     def __str__(self):
         return self.workshop_name
@@ -71,18 +71,41 @@ class Event(models.Model):
     event_name = models.CharField(default="event name",max_length=100)
     image = models.TextField()
     category = models.ForeignKey(Category,default=1,on_delete=models.CASCADE)
-    desc = models.TextField()
-    date = models.DateField()
-    time = models.CharField(default="time of event",max_length=50)
-    rounds = models.TextField()
-    Theme = models.TextField()
-    rules = models.TextField()
-    judge = models.TextField()
-    perks = models.TextField()
-
+    event_desc = models.TextField(null=True)
+    date = models.DateField(null=True)
+    time = models.CharField(default="time of event",max_length=50,null=True)
+    round1 = models.TextField(null=True)
+    round2 = models.TextField(null=True)
+    round3 = models.TextField(null=True)
+    Theme = models.TextField(null=True)
+    rules = models.TextField(null=True)
+    judge = models.TextField(null=True)
+    perks = models.TextField(null=True)
+    completed = models.BooleanField(null=True)
 
     def __str__(self):
         return self.event_name
+
+    def round_1(self):
+        return filter(None, (line.strip() for line in self.round1.splitlines()))
+
+    def round_2(self):
+        return filter(None, (line.strip() for line in self.round2.splitlines()))
+
+    def round_3(self):
+        return filter(None, (line.strip() for line in self.round3.splitlines()))
+
+    def themes(self):
+        return filter(None, (line.strip() for line in self.Theme.splitlines()))
+
+    def rul(self):
+        return filter(None, (line.strip() for line in self.rules.splitlines()))
+    
+    def jud(self):
+        return filter(None, (line.strip() for line in self.judge.splitlines()))
+    
+    def perk(self):
+        return filter(None, (line.strip() for line in self.perks.splitlines()))
 
     class Meta:
         verbose_name = 'Event'
@@ -91,7 +114,7 @@ class Event(models.Model):
 
 class EventRegister(models.Model):
     name = models.CharField(null=True,max_length=100,default="name")
-    email = models.EmailField(unique=True)
+    email = models.EmailField(null=True)
     phone = models.BigIntegerField(null=True)
     college_name = models.CharField(null=True,max_length=50,default="college_name")
     department = models.CharField(null=True,max_length=100,default="department")
@@ -108,7 +131,7 @@ class EventRegister(models.Model):
 
 class WorkshopRegister(models.Model):
     name = models.CharField(null=True,max_length=100,default="name")
-    email = models.EmailField(unique=True)
+    email = models.EmailField(null=True)
     phone = models.BigIntegerField(null=True)
     college_name = models.CharField(null=True,max_length=50,default="college_name")
     department = models.CharField(null=True,max_length=100,default="department")

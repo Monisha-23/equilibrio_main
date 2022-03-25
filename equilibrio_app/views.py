@@ -1,3 +1,4 @@
+from unicodedata import category
 from django.db import IntegrityError
 from django.shortcuts import render,redirect
 from django.contrib import messages
@@ -73,8 +74,8 @@ def profile(request,id):
     user = User.objects.get(id=id)
     stu = Student.objects.get(user=request.user)
     if request.user.is_authenticated:
-        reg_events = EventRegister.objects.filter(name=request.user.username,email=stu.email,phone=stu.phone)
-        reg_work = WorkshopRegister.objects.filter(name=request.user.username,email=stu.email,phone=stu.phone)
+        reg_events = EventRegister.objects.filter(name=request.user.username,email=stu.email)
+        reg_work = WorkshopRegister.objects.filter(name=request.user.username,email=stu.email)
         return render(request,"profile.html",{'stu':stu,'reg_events':reg_events,'reg_work':reg_work})
     else:
         return render('login')
@@ -134,11 +135,9 @@ def teams(request):
 def events_cat(request):
     cat = Category.objects.all()
     return render(request,"event_cat.html",{'cat':cat})
-
-
         
 def events(request,id):
-    event = Event.objects.filter(id=id)
+    event = Event.objects.filter(category=id)
     return render(request,"event.html",{'event':event})
 
 def eventinfo(request,id):
@@ -155,7 +154,7 @@ def workshopregister(request,id):
             college_name = request.POST.get('college_name')
             department = request.POST.get('department')
             semester = request.POST.get('semester')
-            reg = WorkshopRegister.objects.create(name=name,email=email,phone=phone,college_name=college_name,department=department,semester=semester,workshop=event)
+            reg = WorkshopRegister.objects.create(name=request.user.username,email=request.user.email,phone=phone,college_name=college_name,department=department,semester=semester,workshop=event)
             reg.save()
             return redirect('workshop')
         return render(request,"workshopregister.html",{'event':event})
@@ -172,9 +171,9 @@ def registerevent(request,id):
             college_name = request.POST.get('college_name')
             department = request.POST.get('department')
             semester = request.POST.get('semester')
-            reg = EventRegister.objects.create(name=name,email=email,phone=phone,college_name=college_name,department=department,semester=semester,event=event)
+            reg = EventRegister.objects.create(name=request.user.username,email=request.user.email,phone=phone,college_name=college_name,department=department,semester=semester,event=event)
             reg.save()
-            return redirect('events_cat')
+            return redirect('eventcategory')
         return render(request,"eventregister.html",{'event':event})
     else:
         return redirect('login')
