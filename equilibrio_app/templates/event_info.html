@@ -274,7 +274,7 @@
                 <div class="row">
                     {% if event.round1 is not None %}
 
-                    <div class="cust_card col-md-6 border " style="margin-top:2%">
+                    <div class="cust_card col-md-6 col-12 border" style="margin-top:2%">
                         <h2 class="heading text-center mb-5">Round 1</h2>
                         <p class="text-white">
                             {% for i in event.round_1 %}
@@ -287,7 +287,7 @@
 
                     {% if event.round2 is not None %}
 
-                    <div class="cust_card col-md-6 border " style="margin-top:2%">
+                    <div class="cust_card col-md-6 col-12 border " style="margin-top:2%">
                         <h2 class="heading text-center mb-5">Round 2</h2>
                         <p class="text-white">
                             {% for i in event.round_2 %}
@@ -299,7 +299,7 @@
                     {% endif %}
 
                     {% if event.round3 is not None%}
-                    <div class="cust_card col-md-6 border " style="margin-top:2%">
+                    <div class="cust_card col-md-6 col-12 border " style="margin-top:2%">
                         <h2 class="heading text-center mb-5">Round 3</h2>
                         <p class="text-white">
                             {% for i in event.round_3 %}
@@ -380,10 +380,10 @@
 
             <div class="row md-3" style="margin-top: 5%;margin-bottom: 5%;">
                 <div class="row text-center">
-                    <div class="col-sm-6" style="margin-top:3%">
+                    <div class="col-sm-6" style="margin-top:5%">
                         <a class="closebtn" href="{% url 'registerevent' event.id %}">Register</a>
                     </div>
-                    <div class="col-sm-6" style="margin-top:3%">
+                    <div class="col-sm-6" style="margin-top:5%">
                         <a class="closebtn" href="{% url 'events' event.category.id %}">Back</a>
                     </div>
 
