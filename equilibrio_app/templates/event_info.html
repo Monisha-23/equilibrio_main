@@ -257,7 +257,7 @@
         </div>
     </header>
 
-    <div id="Sponsors" style="margin-top: 6%;">
+    <div id="Sponsors" style="margin-top: 8%;">
         <div class="container text-center">
             <div class="row ">
                 <div class="col-sm-12">
@@ -266,15 +266,15 @@
                 </div>
             </div>
             <div class="row text-center">
-                <div class="cust_card col-md-12 border p-5">
+                <div class="cust_card col-md-12 border p-5" style="margin:2%;">
                     <h2 class="heading text-center mb-5  ">What is {{ event.event_name }} ?</h2>
                     <p class="text-white">{{event.event_desc}}</p>
                 </div>
                 <br>
-                <div class="row">
+
                     {% if event.round1 is not None %}
 
-                    <div class="cust_card col-md-6 border " style="margin-top:2%">
+                    <div class="cust_card col-md-12 border " style="margin:2%">
                         <h2 class="heading text-center mb-5">Round 1</h2>
                         <p class="text-white">
                             {% for i in event.round_1 %}
@@ -287,7 +287,7 @@
 
                     {% if event.round2 is not None %}
 
-                    <div class="cust_card col-md-6 border " style="margin-top:2%">
+                    <div class="cust_card col-md-12 border " style="margin:2%">
                         <h2 class="heading text-center mb-5">Round 2</h2>
                         <p class="text-white">
                             {% for i in event.round_2 %}
@@ -299,7 +299,7 @@
                     {% endif %}
 
                     {% if event.round3 is not None%}
-                    <div class="cust_card col-md-6 border " style="margin-top:2%">
+                    <div class="cust_card col-md-12 border " style="margin:2%">
                         <h2 class="heading text-center mb-5">Round 3</h2>
                         <p class="text-white">
                             {% for i in event.round_3 %}
@@ -310,11 +310,10 @@
                     {% endif %}
                     <br>
 
-                </div>
                 <br>
                 {% if event.Theme is not None %}
                 <div class="row mb-3">
-                    <div class="cust_card col-md-12 border   p-5" style="margin-top:2%">
+                    <div class="cust_card col-md-12 border   p-5" style="margin:2%">
                         <h2 class="heading text-center mb-5">Themes</h2>
                         <p class="text-white">
                         <ul class="text-white">
@@ -329,7 +328,7 @@
                 <br>
                 {% if event.rules is not None%}
 
-                <div class="cust_card col-md-12 border   p-5" style="margin-top:2%">
+                <div class="cust_card col-md-12 border   p-5" style="margin:2%">
                     <h2 class="heading text-center mb-5">Rules and Regulation</h2>
                     <p class="text-white">
                     <ul class="text-white">
@@ -344,7 +343,7 @@
                 <br>
                 {% if event.judge is not None%}
 
-                <div class="cust_card col-md-12 border   p-5 " style="margin-top:2%">
+                <div class="cust_card col-md-12 border   p-5 " style="margin:2%">
                     <h2 class="heading text-center mb-5">Judgement Creiteria</h2>
                     <p class="text-white">
                     <ul class="text-white">
@@ -375,15 +374,13 @@
 
         </div>
 
-        <div class="container-fluid mt-5">
-
-
-            <div class="row md-3" style="margin-top: 5%;margin-bottom: 5%;">
+        <div class="container-fluid ">
+            <div class="row md-3" >
                 <div class="row text-center">
-                    <div class="col-sm-6">
+                    <div class="col-sm-6" style="margin-bottom:5%">
                         <a class="closebtn" href="{% url 'registerevent' event.id %}">Register</a>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6" style="margin-bottom:3%">
                         <a class="closebtn" href="{% url 'events' event.category.id %}">Back</a>
                     </div>
 
