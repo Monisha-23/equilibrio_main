@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-fayit+wv#ju_i8@$&l1+i$cy@e&_xx-(217s+whikebc&5cc!c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['equilibrio_main.herokuapp.com']
+ALLOWED_HOSTS = ['equifestggu.org','equilibrio_main.herokuapp.com']
 
 
 # Application definition
