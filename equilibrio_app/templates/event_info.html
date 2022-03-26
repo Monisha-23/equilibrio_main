@@ -42,8 +42,8 @@
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'css/about.css' %}">
     <link rel="stylesheet" href="{% static 'css/timeline.css' %}">
-    <link rel="stylesheet" href="{% static 'css/card.css' %}">
-    <script rel="text/javascript" src="js/flipdown.js"></script>
+
+
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">
     <link rel="stylesheet" href="{% static 'css/deskof.css' %}">
     <link rel="stylesheet" href="{% static 'css/nav.css' %}">
@@ -274,7 +274,7 @@
                 <div class="row">
                     {% if event.round1 is not None %}
 
-                    <div class="cust_card col-md-6 col-12 border" style="margin-top:2%">
+                    <div class="cust_card col-md-6 border " style="margin-top:2%">
                         <h2 class="heading text-center mb-5">Round 1</h2>
                         <p class="text-white">
                             {% for i in event.round_1 %}
@@ -287,7 +287,7 @@
 
                     {% if event.round2 is not None %}
 
-                    <div class="cust_card col-md-6 col-12 border " style="margin-top:2%">
+                    <div class="cust_card col-md-6 border " style="margin-top:2%">
                         <h2 class="heading text-center mb-5">Round 2</h2>
                         <p class="text-white">
                             {% for i in event.round_2 %}
@@ -299,7 +299,7 @@
                     {% endif %}
 
                     {% if event.round3 is not None%}
-                    <div class="cust_card col-md-6 col-12 border " style="margin-top:2%">
+                    <div class="cust_card col-md-6 border " style="margin-top:2%">
                         <h2 class="heading text-center mb-5">Round 3</h2>
                         <p class="text-white">
                             {% for i in event.round_3 %}
@@ -380,10 +380,10 @@
 
             <div class="row md-3" style="margin-top: 5%;margin-bottom: 5%;">
                 <div class="row text-center">
-                    <div class="col-sm-6" style="margin-top:5%">
+                    <div class="col-sm-6">
                         <a class="closebtn" href="{% url 'registerevent' event.id %}">Register</a>
                     </div>
-                    <div class="col-sm-6" style="margin-top:5%">
+                    <div class="col-sm-6">
                         <a class="closebtn" href="{% url 'events' event.category.id %}">Back</a>
                     </div>
 
@@ -484,14 +484,13 @@
                             <div class="col-lg-4 col-12">
                                 <div class="payment-gateway">
                                     <span>Equilibrio 2022</span>
-                                    <!-- <img src="{% static 'images/logo.jpeg' %}" alt="#" style="height: 50px;width: auto;"> -->
+                                   
                                 </div>
                             </div>
                             <div class="col-lg-4 col-12">
                                 <div class="copyright">
                                     copyright &copy; Equilibrio'22
-                                    <!-- <p>Designed and Developed by<a href="https://graygrids.com/" rel="nofollow"
-                        target="_blank">GrayGrids</a></p> -->
+                                    
                                 </div>
                             </div>
                             <div class="col-lg-4 col-12">
@@ -522,4 +521,3 @@
 </body>
 
 </html>
-<!-- rgb(235 99 228) -->
