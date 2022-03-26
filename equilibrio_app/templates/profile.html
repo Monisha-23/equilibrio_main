@@ -178,6 +178,26 @@ p {
         margin-bottom: 8%;
         color: white;
     }
+    @media(max-width:1050px)
+    {
+        .card-img-top{
+            display: none;
+        }
+       
+    }
+    @media(max-width:800px) 
+    {
+        .details{
+            margin-top: 15%;
+        }
+       
+    }
+    @media(min-width:801px)and(max-width:1050px){
+        .details{
+            margin-top: 8%;
+        }
+       
+    }
 
 </style>
 <script>
@@ -305,8 +325,14 @@ p {
 
         <div class="template col-12 p-0" style="background-color: #280c47;">
             <!-- Column -->
-            <div class="card"> <img class="card-img-top" src="https://i.imgur.com/K7A78We.jpg" alt="Card image cap">
+            <div class="card"> 
+                <img class="card-img-top" src="{% static 'images\banner.png' %}" alt="Card image cap">
                 <div class="card-body little-profile text-center">
+                    <div class="col-sm-12 details" >
+                        <h1 class="sponsors-title text-center">PERSONAL <span style="font-size:40px;font-weight: 600;color: rgb(193, 125, 188);"> | </span> DETAILS
+                        </h1>
+                        <p style="color: white !important;">Get to know your profile updates!</p>
+                    </div>
                     <!-- {% comment %} <div class="pro-img">
                       {% if stu.profile.url is not None %}
                         <img src="{{ stu.profile.url }}" alt="user">
@@ -317,7 +343,7 @@ p {
                     <div class="container" id="login">
                     <form method="POST" >
                         {% csrf_token %}
-                      <h3>Personal Details</h3>
+                      
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group">
@@ -391,22 +417,22 @@ p {
 
                           <h3>Registered Events</h3>
                           {% for i in reg_events %}
-                          <div class="row" style="margin:2% 0%;background-color: rgba(255, 255, 255, 0.13);border-radius: 10px;backdrop-filter: blur(10px);padding:2% 0%">
+                          <div class="row" style="margin:3% 0%;background-color: rgba(255, 255, 255, 0.13);border-radius: 10px;backdrop-filter: blur(10px);padding:2% 0%">
                             
                             <div class="col-md-4">
-                              <img src="{{i.event.image}}">
+                              <img src="{{i.event.image}}" class="img-thumbnail">
                             </div>
                             <div class="col-md-8" style="text-align:left">
                               <h4 style="color:plum;font-family:Arial, Helvetica, sans-serif">{{i.event.event_name}}</h4>
                               <p style="color:white">{{i.event.event_desc}}</p>
                               {% if i.event.date is not None and i.event.time is not None %}
-                              <b style="font-color:plum">Date: <span style="color:white">{{i.event.date}}</span></b>
-                              <b style="font-color:plum">Time: <span style="color:white">{{i.event.time}}</span></b>
+                              <b style="color:plum">Date: <span style="color:white">{{i.event.date}}</span></b>
+                              <b style="color:plum">Time: <span style="color:white">{{i.event.time}}</span></b>
                               {% endif %}
                               {% if i.event.completed %}
-                                <button style="margin:2% 0%;padding:1%;border-radius:10px;background:#7460ee;color:white;font-size: 14px;">Upcoming</button>
+                                <button style="margin:2% 0%;padding:2%;border-radius:10px;background:#7460ee;color:white;font-size: 14px;">Completed</button>
                               {% else %}
-                              <button style="margin:2% 0%;padding:1%;border-radius:10px;background:transparent;color:white;font-size: 14px;border:1px solid #7460ee">Completed</button>
+                              <button style="margin:2% 0%;padding:2%;border-radius:10px;background:transparent;color:white;font-size: 14px;border:1px solid #7460ee">Upcoming</button>
                                 {% endif %}
                             </div>
                           </div>
@@ -414,19 +440,23 @@ p {
                           {% endfor %}
                           
                           {% for i in reg_work %}
-                          <div class="row" style="background-color: rgba(255, 255, 255, 0.13);border-radius: 10px;backdrop-filter: blur(10px);padding:2% 0%">
+                          <div class="row" style="margin:2% 0%;background-color: rgba(255, 255, 255, 0.13);border-radius: 10px;backdrop-filter: blur(10px);padding:2% 0%">
                             
                             <div class="col-md-4">
-                              <img src="{{i.workshop.image.url}}">
+                              <img src="{{i.workshop.image}}" class="img-thumbnail">
                             </div>
                             <div class="col-md-8" style="text-align:left">
-                              <h5>{{i.workshop.workshop_name}}</h5>
-                              <p>{{i.workshop.workshop_desc}}</p>
-                              {% if i.workshop.completed %}
-                              <button style="margin:2% 0%;padding:1%;border-radius:10px;background:#7460ee;color:white;font-size: 14px;">Completed</button>
-                            {% else %}
-                            <button style="margin:2% 0%;padding:1%;border-radius:10px;background:transparent;color:white;font-size: 14px;border:1px solid #7460ee">Upcoming</button>
+                              <h4 style="color:plum;font-family:Arial, Helvetica, sans-serif">{{i.workshop.workshop_name}}</h4>
+                              <p style="color:white">{{i.workshop.workshop_desc}}</p>
+                              {% if i.workshop.date is not None and i.workshop.time is not None %}
+                              <b style="color:plum">Date: <span style="color:white">{{i.workshop.date}}</span></b><br>
+                              <b style="color:plum">Time: <span style="color:white">{{i.workshop.time}}</span></b><br>
                               {% endif %}
+                              {% if i.workshop.completed %}
+                                <button style="margin:2% 0%;padding:2%;border-radius:10px;background:#7460ee;color:white;font-size: 14px;">Completed</button>
+                              {% else %}
+                              <button style="margin:2% 0%;padding:2%;border-radius:10px;background:transparent;color:white;font-size: 14px;border:1px solid #7460ee">Upcoming</button>
+                                {% endif %}
                             </div>
                           </div>
                           {% endfor %}
@@ -446,7 +476,7 @@ p {
                   <div class="row">
                       <div class="col-lg-3 col-md-4 col-12">
                           <div class="footer-logo">
-                              <a href="index.html">
+                              <a>
                                   <img src="{% static 'images/neweq.png' %}" alt="#" style="height:75px;width:auto">
                               </a>
                           </div>

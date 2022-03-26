@@ -406,7 +406,7 @@
                                 <div class="single-blog">
                                     <div class="blog-img">
                                         <a href="blog-single-sidebar.html">
-                                            <img src="{{ i.image.url }}" alt="#">
+                                            <img src="{{ i.image }}" alt="#">
                                         </a>
                                     </div>
                                     <div class="blog-content">
@@ -422,7 +422,7 @@
                                             </div>
                                             {% else %}
                                             <div class="button" id="login">
-                                                <a class="btn" href="{% url 'workshopregister' i.id %}">Resgister</a>
+                                                <a class="btn" href="{% url 'workshopregister' i.id %}">Register</a>
                                             </div>
                                             {% endif %}
                                     </div>
@@ -466,7 +466,7 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-4 col-12">
                             <div class="footer-logo">
-                                <a href="index.html">
+                                <a>
                                     <img src="{% static 'images/neweq.png' %}" alt="#" style="height:75px;width:auto">
                                 </a>
                             </div>
