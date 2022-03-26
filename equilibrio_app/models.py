@@ -15,9 +15,9 @@ class Student(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE,default=1)
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=100,default=None)
-    phone = models.BigIntegerField(null=True,default=90000000)
-    college_name = models.CharField(null=True,max_length=50,default="college_name")
-    department = models.CharField(null=True,max_length=100,default="department")
+    phone = models.BigIntegerField(null=True)
+    college_name = models.CharField(null=True,max_length=50)
+    department = models.CharField(null=True,max_length=100)
     semester = models.IntegerField(default=1)
     part_of = models.CharField(max_length = 50,choices = CHOICES)
 
@@ -55,9 +55,9 @@ class Workshop(models.Model):
     workshop_name = models.CharField(default="workshop name",max_length=100)
     category = models.ForeignKey(Category,default=1,on_delete=models.CASCADE)
     workshop_desc = models.TextField(null=True)
-    date = models.DateField(auto_created=True,null=True)
+    date = models.CharField(null=True, max_length=50)
     time = models.CharField(default="time",max_length=100,null=True)
-    image = models.ImageField(blank=True, upload_to='images',null=True)
+    image = models.TextField(null=True)
     completed = models.BooleanField(null=True)
 
     def __str__(self):
@@ -72,7 +72,7 @@ class Event(models.Model):
     image = models.TextField()
     category = models.ForeignKey(Category,default=1,on_delete=models.CASCADE)
     event_desc = models.TextField(null=True)
-    date = models.DateField(null=True)
+    date = models.CharField(max_length=100,null=True)
     time = models.CharField(default="time of event",max_length=50,null=True)
     round1 = models.TextField(null=True)
     round2 = models.TextField(null=True)
