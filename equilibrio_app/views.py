@@ -157,7 +157,8 @@ def workshopregister(request,id):
             reg = WorkshopRegister.objects.create(name=request.user.username,email=request.user.email,phone=phone,college_name=college_name,department=department,semester=semester,workshop=event)
             reg.save()
             return redirect('workshop')
-        return render(request,"workshopregister.html",{'event':event})
+        else:
+            return render(request,"workshopregister.html",{'event':event})
     else:
         return redirect('login')
 
@@ -165,16 +166,15 @@ def registerevent(request,id):
     event = Event.objects.get(id = id)
     if request.user.is_authenticated:
         if request.method == "POST":
-            name = request.POST.get('name')
             phone = request.POST.get('phone')
-            email = request.POST.get('email')
             college_name = request.POST.get('college_name')
             department = request.POST.get('department')
             semester = request.POST.get('semester')
             reg = EventRegister.objects.create(name=request.user.username,email=request.user.email,phone=phone,college_name=college_name,department=department,semester=semester,event=event)
             reg.save()
             return redirect('eventcategory')
-        return render(request,"eventregister.html",{'event':event})
+        else:
+            return render(request,"eventregister.html",{'event':event})
     else:
         return redirect('login')
 

@@ -113,11 +113,11 @@ class Event(models.Model):
 
 
 class EventRegister(models.Model):
-    name = models.CharField(null=True,max_length=100,default="name")
+    name = models.CharField(null=True,max_length=500)
     email = models.EmailField(null=True)
     phone = models.BigIntegerField(null=True)
-    college_name = models.CharField(null=True,max_length=50,default="college_name")
-    department = models.CharField(null=True,max_length=100,default="department")
+    college_name = models.CharField(null=True,max_length=500)
+    department = models.CharField(null=True,max_length=500)
     semester = models.IntegerField(default=1)
     date = models.DateTimeField(auto_now_add=True)
     event = models.ForeignKey(Event,on_delete=models.CASCADE)
